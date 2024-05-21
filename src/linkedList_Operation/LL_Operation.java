@@ -26,6 +26,12 @@ public class LL_Operation {
 		list.insertAtEnd(40);
 		System.out.println("LinkedList: ");
 		list.traverseLinkedList();
+		list.insertAtEnd(80);
+		System.out.println("LinkedList: ");
+		list.traverseLinkedList();
+		list.insertAtEnd(90);
+		System.out.println("LinkedList: ");
+		list.traverseLinkedList();
 		list.insertAtBegin(6);
 		System.out.println("LinkedList: ");
 		list.traverseLinkedList();
