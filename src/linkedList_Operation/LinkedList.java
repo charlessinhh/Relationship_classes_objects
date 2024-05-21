@@ -5,6 +5,13 @@ public class LinkedList {
 	Node head;
 	
 	//insert at the begin
+	public void insertAtBegin(int data) {
+		Node newNode = new Node(data);
+		// newNode will point to head as currently head is pointing to the rest of list
+		newNode.next = head;
+		//now point head to newNode to insert it at begin
+		head = newNode;
+	}
 	
 	
 	//insert at the last
@@ -21,7 +28,7 @@ public class LinkedList {
 		while(temp.next != null) {
 			temp = temp.next;
 		}
-		// temp reached the last element..now add the newNode to it.
+		// temp reached the last element..now add the newNode to temp's next.
 		newNode.next = null;
 		temp.next = newNode;
 		
@@ -45,10 +52,12 @@ public class LinkedList {
 
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
+		list.insertAtBegin(5);
 		list.insertAtEnd(10);
 		list.insertAtEnd(20);
 		list.insertAtEnd(30);
 		list.insertAtEnd(40);
+		list.insertAtBegin(6);
 		System.out.println("LinkedList: ");
 		list.traverseLinkedList();
 	}
