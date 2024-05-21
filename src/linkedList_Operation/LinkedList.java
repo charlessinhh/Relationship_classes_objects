@@ -2,7 +2,12 @@ package linkedList_Operation;
 
 public class LinkedList {
 	
+	
 	Node head;
+	
+	
+	
+	
 	
 	//insert at the begin
 	public void insertAtBegin(int data) {
@@ -15,6 +20,11 @@ public class LinkedList {
 		//now point head to newNode to insert it at begin
 		head = newNode;
 	}
+	
+	
+	
+	
+	
 	
 	
 	//insert at the last
@@ -37,6 +47,13 @@ public class LinkedList {
 		
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 	//insert after a given current node
 	public void insertAfterNode(Node currentNode, int newData) {
 		Node newNode = new Node(newData);
@@ -54,6 +71,13 @@ public class LinkedList {
 		
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 	public void insertAfterValue(int currentData, int newData) {
 		Node temp = head;
 		Node newNode = new Node(newData);
@@ -70,17 +94,32 @@ public class LinkedList {
 		
 	}
 	
+	
+	
+	
+	
+	
+	
 	public boolean searchNodeByKey(int key) {
 		
 		//search by key 
 		Node temp = head;
 		//traverse the list and find the key if found return true else false
 		while(temp != null) {
-			if(temp.data == key) return true;
+			if(temp.data == key) {
+				System.out.println("search by key " +key +" :- True");
+				return true;
+			}
 			temp = temp.next;
 		}
+		System.out.println("search by key " +key +" :- False");
 		return false;
 	}
+	
+	
+	
+	
+	
 	
 	public void deleteNodeByKey(int key) {
 		
@@ -106,17 +145,24 @@ public class LinkedList {
 		//as temp reached the node of given key,, now delete the temp/key
 		prev.next = temp.next;
 		temp.next = null; // garbage collection
-		
+		System.out.println("Key "+key+" is deleted successfully.");
 		
 		//element not found to be deleted
 		
 		
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 	//traversing the LinkedList and print the elements also
 	public void traverseLinkedList() {
 		//take a Node object that points to head and traverse through the list
-		System.out.println("head.data  "+head.data);
+//		System.out.println("head.data  "+head.data);
 		Node current = head;
 		
 		System.out.print("head -> ");
@@ -131,34 +177,6 @@ public class LinkedList {
 	}
 	
 
-	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
-		list.insertAtBegin(5);
-		System.out.println("LinkedList: ");
-		list.traverseLinkedList();
-		list.insertAtEnd(10);
-		System.out.println("LinkedList: ");
-		list.traverseLinkedList();
-		list.insertAtEnd(20);
-		System.out.println("LinkedList: ");
-		list.traverseLinkedList();
-		list.insertAtEnd(30);
-		System.out.println("LinkedList: ");
-		list.traverseLinkedList();
-//		list.insertAfterNode(list.head,12);
-		list.insertAfterValue(30, 35);
-		System.out.println("LinkedList: ");
-		list.traverseLinkedList();
-		list.insertAtEnd(40);
-		System.out.println("LinkedList: ");
-		list.traverseLinkedList();
-		list.insertAtBegin(6);
-		System.out.println("LinkedList: ");
-		list.traverseLinkedList();
-		System.out.println("search by key data : "+list.searchNodeByKey(6));
-		list.deleteNodeByKey(15);
-		System.out.println("LinkedList: ");
-		list.traverseLinkedList();
-	}
+	
 
 }
