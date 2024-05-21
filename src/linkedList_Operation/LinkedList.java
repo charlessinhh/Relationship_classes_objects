@@ -70,6 +70,16 @@ public class LinkedList {
 		
 	}
 	
+	public boolean searchNode(int key) {
+		
+		Node temp = head;
+		while(temp != null) {
+			if(temp.data == key) return true;
+			temp = temp.next;
+		}
+		return false;
+	}
+	
 	//traversing the LinkedList and print the elements also
 	public void traverseLinkedList() {
 		//take a Node object that points to head and traverse through the list
@@ -112,6 +122,7 @@ public class LinkedList {
 		list.insertAtBegin(6);
 		System.out.println("LinkedList: ");
 		list.traverseLinkedList();
+		System.out.println("seacrh by key data : "+list.searchNode(6));
 	}
 
 }
