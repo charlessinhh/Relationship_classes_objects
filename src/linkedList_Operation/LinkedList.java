@@ -54,30 +54,63 @@ public class LinkedList {
 		
 	}
 	
-	public void insertAfterValue(int currentValue, int newData) {
+	public void insertAfterValue(int currentData, int newData) {
 		Node temp = head;
 		Node newNode = new Node(newData);
 		
-		while(temp != null && temp.data != currentValue) {
+		while(temp != null && temp.data != currentData) {
 			temp = temp.next;
 		}
 		
 		if(temp == null) {
-			System.out.println("Node with "+currentValue+ " not found");
+			System.out.println("Node with "+currentData+ " not found");
 		}
 		newNode.next = temp.next;
 		temp.next = newNode;
 		
 	}
 	
-	public boolean searchNode(int key) {
+	public boolean searchNodeByKey(int key) {
 		
+		//search by key 
 		Node temp = head;
+		//traverse the list and find the key if found return true else false
 		while(temp != null) {
 			if(temp.data == key) return true;
 			temp = temp.next;
 		}
 		return false;
+	}
+	
+	public void deleteNodeByKey(int key) {
+		
+		Node temp = head;  //here temp will be found and delete from list
+		Node prev = null; // to store prev node of temp. and pointing this prev to temp.next
+		
+		//if first node to be deleted means temp.data = key
+		if(temp != null && temp.data == key) {
+			head = temp.next;
+			return;
+		}
+		
+		//search the next node data ,,
+		while(temp != null && temp.data != key) {
+			prev = temp;
+			temp = temp.next;
+		}
+		
+		if(temp == null) {
+			System.out.println("key not found to delete");
+			return;
+		}
+		//as temp reached the node of given key,, now delete the temp/key
+		prev.next = temp.next;
+		temp.next = null; // garbage collection
+		
+		
+		//element not found to be deleted
+		
+		
 	}
 	
 	//traversing the LinkedList and print the elements also
@@ -122,7 +155,10 @@ public class LinkedList {
 		list.insertAtBegin(6);
 		System.out.println("LinkedList: ");
 		list.traverseLinkedList();
-		System.out.println("seacrh by key data : "+list.searchNode(6));
+		System.out.println("search by key data : "+list.searchNodeByKey(6));
+		list.deleteNodeByKey(15);
+		System.out.println("LinkedList: ");
+		list.traverseLinkedList();
 	}
 
 }
