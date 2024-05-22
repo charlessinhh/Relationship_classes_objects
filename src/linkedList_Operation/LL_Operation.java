@@ -41,5 +41,6 @@ public class LL_Operation {
 		list.deleteNodeByKey(5);
 		System.out.println("LinkedList: ");
 		list.traverseLinkedList();
+		list.findMiddleElement();
 	}
 }

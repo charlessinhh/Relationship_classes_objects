@@ -176,7 +176,17 @@ public class LinkedList {
 		
 	}
 	
-
+	
+	public void findMiddleElement() {
+		Node fastPointer = head;
+		Node slowPointer = head;
+		
+		while(fastPointer != null && fastPointer.next != null) {
+			fastPointer = fastPointer.next.next;
+			slowPointer = slowPointer.next;
+		}
+		System.out.println("Middle element of LinkedList : "+slowPointer.data); 
+	}
 	
 
 }
